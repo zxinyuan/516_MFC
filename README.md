@@ -1,16 +1,16 @@
 # 516project
 
-## synthetic data generation
+## Synthetic data generation
 ```
 python data_generation.py
 ```
 
-## create relational db model in postgreSQL
-1. create table
+## Create relational db model in postgreSQL
+1. Create table:
 ```
 python db_schema.py create_table
 ```
-2. insert generated data
+2. Insert generated data:
 ```
 python db_schema.py insert_instance
 ```
