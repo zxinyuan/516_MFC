@@ -122,7 +122,7 @@ def insert_instance(username, password, database):
         record = cursor.fetchone()
         print("You are connected to - ", record, "\n")
 
-        with open('./students.pickle', 'rb') as f:
+        with open('./data/students.pickle', 'rb') as f:
           students = pickle.load(f)
         # SQL query to insert instances into table STUDENTS
         for i in range(len(students)):
@@ -133,7 +133,7 @@ def insert_instance(username, password, database):
             cursor.execute(insert_query)
             print('==> inserted one instance into STUDENTS')
 
-        with open('./locations.pickle', 'rb') as f:
+        with open('./data/locations.pickle', 'rb') as f:
           locations = pickle.load(f)
         # SQL query to insert instances into table LOCATION
         for i in range(len(locations)):
@@ -144,7 +144,7 @@ def insert_instance(username, password, database):
             cursor.execute(insert_query)
             print('==> inserted one instance into LOCATION')
         
-        with open('./healthcenters.pickle', 'rb') as f:
+        with open('./data/healthcenters.pickle', 'rb') as f:
           healthcenters = pickle.load(f)
         # SQL query to insert instances into table HEALTHCENTERS
         for i in range(len(healthcenters)):
@@ -155,7 +155,7 @@ def insert_instance(username, password, database):
             cursor.execute(insert_query)
             print('==> inserted one instance into HEALTHCENTERS')
 
-        with open('./activitys.pickle', 'rb') as f:
+        with open('./data/activitys.pickle', 'rb') as f:
           activitys = pickle.load(f)
         # SQL query to insert instances into table ACTIVITY
         for i in range(len(activitys)):
@@ -166,7 +166,7 @@ def insert_instance(username, password, database):
             cursor.execute(insert_query)
             print('==> inserted one instance into ACTIVITY')
 
-        with open('./participations.pickle', 'rb') as f:
+        with open('./data/participations.pickle', 'rb') as f:
           participations = pickle.load(f)
         # SQL query to insert instances into table PARTICIPATION
         for i in range(len(participations)):
@@ -177,7 +177,7 @@ def insert_instance(username, password, database):
             cursor.execute(insert_query)
             print('==> inserted one instance into PARTICIPATION')
 
-        with open('./testlogs.pickle', 'rb') as f:
+        with open('./data/testlogs.pickle', 'rb') as f:
           testlogs = pickle.load(f)
         # SQL query to insert instances into table TESTLOG
         for i in range(len(testlogs)):
@@ -188,7 +188,7 @@ def insert_instance(username, password, database):
             cursor.execute(insert_query)
             print('==> inserted one instance into TESTLOG')
 
-        with open('./vaccinations.pickle', 'rb') as f:
+        with open('./data/vaccinations.pickle', 'rb') as f:
           vaccinations = pickle.load(f)
         # SQL query to insert instances into table VACCINATION
         for i in range(len(vaccinations)):
@@ -199,7 +199,7 @@ def insert_instance(username, password, database):
             cursor.execute(insert_query)
             print('==> inserted one instance into VACCINATION')
 
-        with open('./vaccinationhistorys.pickle', 'rb') as f:
+        with open('./data/vaccinationhistorys.pickle', 'rb') as f:
           vaccinationhistorys = pickle.load(f)
         # SQL query to insert instances into table VACCINATIONHISTORY
         for i in range(len(vaccinationhistorys)):
