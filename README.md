@@ -4,6 +4,7 @@
 - [gmpy2](https://gmpy2.readthedocs.io/en/latest/mpz.html#examples) 
 - [PyCryptodome](https://pycryptodome.readthedocs.io/en/latest/src/installation.html) 
 - [phe](https://pypi.org/project/phe/)
+- [psycopg2](https://pypi.org/project/psycopg2/)
 
 ## Synthetic data generation
 ```
