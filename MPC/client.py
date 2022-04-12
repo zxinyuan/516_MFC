@@ -48,6 +48,6 @@ def PSU_client_card(X):
 
 def Average_client():
     (pk, sk) = util.KeyGen()
-    ret = util.Dec(sk, Average_server(pk, Y))
+    ret = util.Dec(sk, server.Average_server(pk))
     return ret
 
