@@ -108,7 +108,9 @@ def query2():
         if masked_X[i] not in masked_Y:
             pos.append(i)
     # get union
-    union_enc = [res2[p] for p in pos] + res1
+    union_enc_ = [res2[p] for p in pos] + res1
+    union_enc = []
+    [union_enc.append(x) for x in union_enc_ if x not in union_enc]
 
     end_time = time.time()
 
@@ -171,8 +173,6 @@ def query3():
     # intersect_enc = [res2[p] for p in pos]
 
     intersect_enc_ = PSI_client(res1, res2)
-    intersect_enc = []
-    [intersect_enc.append(x) for x in intersect_enc_ if x not in intersect_enc]
 
     end_time = time.time()   
 
