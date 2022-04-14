@@ -132,7 +132,7 @@ def insert_instance(username, password, database, ratio):
         record = cursor.fetchone()
         print("You are connected to - ", record, "\n")
 
-        with open('./data/students.pickle', 'rb') as f:
+        with open('../data/students.pickle', 'rb') as f:
           students = pickle.load(f)
         # students = random.sample(students, int(len(students)*ratio))
         # print(len(students))
@@ -145,7 +145,7 @@ def insert_instance(username, password, database, ratio):
             cursor.execute(insert_query)
             # print('==> inserted one instance into STUDENTS')
 
-        with open('./data/locations.pickle', 'rb') as f:
+        with open('../data/locations.pickle', 'rb') as f:
           locations = pickle.load(f)
         # locations = random.sample(locations, int(len(locations)*ratio))
         # SQL query to insert instances into table LOCATION
@@ -157,7 +157,7 @@ def insert_instance(username, password, database, ratio):
             cursor.execute(insert_query)
             # print('==> inserted one instance into LOCATION')
         
-        with open('./data/healthcenters.pickle', 'rb') as f:
+        with open('../data/healthcenters.pickle', 'rb') as f:
           healthcenters = pickle.load(f)
         # healthcenters = random.sample(healthcenters, int(len(healthcenters)*ratio))
         # SQL query to insert instances into table HEALTHCENTERS
@@ -169,7 +169,7 @@ def insert_instance(username, password, database, ratio):
             cursor.execute(insert_query)
             # print('==> inserted one instance into HEALTHCENTERS')
 
-        with open('./data/activitys.pickle', 'rb') as f:
+        with open('../data/activitys.pickle', 'rb') as f:
           activitys = pickle.load(f)
         # activitys = random.sample(activitys, int(len(activitys)*ratio))
         # SQL query to insert instances into table ACTIVITY
@@ -181,7 +181,7 @@ def insert_instance(username, password, database, ratio):
             cursor.execute(insert_query)
             # print('==> inserted one instance into ACTIVITY')
 
-        with open('./data/participations.pickle', 'rb') as f:
+        with open('../data/participations.pickle', 'rb') as f:
           participations = pickle.load(f)
         participations = random.sample(participations, int(len(participations)*ratio))
         # SQL query to insert instances into table PARTICIPATION
@@ -193,7 +193,7 @@ def insert_instance(username, password, database, ratio):
             cursor.execute(insert_query)
             # print('==> inserted one instance into PARTICIPATION')
 
-        with open('./data/testlogs.pickle', 'rb') as f:
+        with open('../data/testlogs.pickle', 'rb') as f:
           testlogs = pickle.load(f)
         testlogs = random.sample(testlogs, int(len(testlogs)*ratio))
         # SQL query to insert instances into table TESTLOG
@@ -205,7 +205,7 @@ def insert_instance(username, password, database, ratio):
             cursor.execute(insert_query)
             # print('==> inserted one instance into TESTLOG')
 
-        with open('./data/vaccinations.pickle', 'rb') as f:
+        with open('../data/vaccinations.pickle', 'rb') as f:
           vaccinations = pickle.load(f)
         # vaccinations = random.sample(vaccinations, int(len(vaccinations)*ratio))
         # SQL query to insert instances into table VACCINATION
@@ -217,7 +217,7 @@ def insert_instance(username, password, database, ratio):
             cursor.execute(insert_query)
             # print('==> inserted one instance into VACCINATION')
 
-        with open('./data/vaccinationhistorys.pickle', 'rb') as f:
+        with open('../data/vaccinationhistorys.pickle', 'rb') as f:
           vaccinationhistorys = pickle.load(f)
         vaccinationhistorys = random.sample(vaccinationhistorys, int(len(vaccinationhistorys)*ratio))
         # SQL query to insert instances into table VACCINATIONHISTORY
