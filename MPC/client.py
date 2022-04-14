@@ -4,16 +4,18 @@ import util
 from Value import Value
 import server
 import time
+import math
 
 
 def PSI_client(X):
     X_ = [Value(bytes_to_long(bytes(x,'utf-8'))) for x in X]
-    blinded_X = [util.OPRF_Blind(x) for x in X_]
-    r = blinded_X[0][0]
-    M = []
-    for bx in blinded_X:
-        M.append(bx[1])
-    (Xrk, masked_Y) = server.PSI_server(M)
+    r = Value()
+    r.getRand()
+    while math.gcd(r.value, util.field-1) != 1:
+        r = Value()
+        r.getRand()
+    blinded_X = [util.OPRF_Blind(x, r) for x in X_]
+    (Xrk, masked_Y) = server.PSI_server(blinded_X)q
     masked_X = [util.OPRF_Finalize(r, xrk) for xrk in Xrk]
     pos = []
     for i in range(len(masked_X)):

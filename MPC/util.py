@@ -27,14 +27,9 @@ def inv(a, m):
 
 
 # OPRF   
-def OPRF_Blind(x):
-    r = Value()
-    r.getRand()
-    while math.gcd(r.value, field-1) != 1:
-        r = Value()
-        r.getRand()
+def OPRF_Blind(x, r):
     M = x**r
-    return (r,M)
+    return M
 
 def OPRF_Evaluate(k, M):
     Z = M**k
