@@ -172,7 +172,7 @@ def query3():
     # # get intersect
     # intersect_enc = [res2[p] for p in pos]
 
-    intersect_enc_ = PSI_client(res1, res2)
+    intersect_enc = PSI_client(res1, res2)
 
     end_time = time.time()   
 
