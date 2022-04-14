@@ -68,7 +68,7 @@ def generate_data_students(num):
         student['last_name'] = random.sample(surname_list, 1)[0]
         students.append(student)
         print(student)
-    with open('./data/students.pickle', 'wb') as f:
+    with open('../data/students.pickle', 'wb') as f:
         pickle.dump(students, f)
 
     print('==> finished students data generation.')
@@ -88,7 +88,7 @@ def generate_data_location(num):
         location['city'] = 'Durham'
         locations.append(location)
         print(location)
-    with open('./data/locations.pickle', 'wb') as f:
+    with open('../data/locations.pickle', 'wb') as f:
         pickle.dump(locations, f)
 
     print('==> finished location data generation.')
@@ -108,7 +108,7 @@ def generate_data_healthcenters(num):
         healthcenter['location_id'] = '0' * 6 + ''.join(random.choice(letters) for i in range(3))
         healthcenters.append(healthcenter)
         print(healthcenter)
-    with open('./data/healthcenters.pickle', 'wb') as f:
+    with open('../data/healthcenters.pickle', 'wb') as f:
         pickle.dump(healthcenters, f)
 
     print('==> finished healthcenters data generation.')
@@ -128,7 +128,7 @@ def generate_data_activity(num):
         activity['date'] = generate_random_date()
         activitys.append(activity)
         print(activity)
-    with open('./data/activitys.pickle', 'wb') as f:
+    with open('../data/activitys.pickle', 'wb') as f:
         pickle.dump(activitys, f)
 
     print('==> finished activity data generation.')
@@ -148,7 +148,7 @@ def generate_data_participation(num):
         participation['student_id'] = '0' * 3 + ''.join(random.choice(letters) for i in range(4))
         participations.append(participation)
         print(participation)
-    with open('./data/participations.pickle', 'wb') as f:
+    with open('../data/participations.pickle', 'wb') as f:
         pickle.dump(participations, f)
 
     print('==> finished participation data generation.')
@@ -172,7 +172,7 @@ def generate_data_testlog(num):
         testlog['student_id'] = '0' * 3 + ''.join(random.choice(letters) for i in range(4))
         testlogs.append(testlog)
         print(testlog)
-    with open('./data/testlogs.pickle', 'wb') as f:
+    with open('../data/testlogs.pickle', 'wb') as f:
         pickle.dump(testlogs, f)
 
     print('==> finished testlog data generation.')
@@ -190,7 +190,7 @@ def generate_data_vaccination(num):
         vaccination['brand_id'] = '0' * (5 - len(str(i))) + str(i)
         vaccinations.append(vaccination)
         print(vaccination)
-    with open('./data/vaccinations.pickle', 'wb') as f:
+    with open('../data/vaccinations.pickle', 'wb') as f:
         pickle.dump(vaccinations, f)
 
     print('==> finished vaccination data generation.')
@@ -212,7 +212,7 @@ def generate_data_vaccinationhistory(num):
         vaccinationhistory['date'] = generate_random_date()
         vaccinationhistorys.append(vaccinationhistory)
         print(vaccinationhistory)
-    with open('./data/vaccinationhistorys.pickle', 'wb') as f:
+    with open('../data/vaccinationhistorys.pickle', 'wb') as f:
         pickle.dump(vaccinationhistorys, f)
 
     print('==> finished vaccinationhistory data generation.')
