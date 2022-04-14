@@ -56,7 +56,7 @@ def query1():
     avg1 = util.Dec(sk1, sum(enc_res1)/len(res1))
     avg2 = util.Dec(sk2, sum(enc_res2)/len(res2))
     # avg
-    avg_enc = (avg1 * len(enc_res1) + avg2 * len(enc_res2)) / (len(enc_res2) + len(enc_res2))
+    avg_enc = (avg1 * len(enc_res1) + avg2 * len(enc_res2)) / (len(enc_res1) + len(enc_res2))
     end_time = time.time()
 
     sum_ans = 0
