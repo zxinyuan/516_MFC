@@ -20,3 +20,8 @@ python db_schema.py create_table
 ```
 python db_schema.py insert_instance
 ```
+
+## test 3 queries (avg, intersection, union)
+```
+python ./src/main.py
+```
