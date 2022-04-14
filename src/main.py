@@ -56,7 +56,7 @@ def query1():
     avg1 = util.Dec(sk1, sum(enc_res1)/len(res1))
     avg2 = util.Dec(sk2, sum(enc_res2)/len(res2))
     # avg
-    avg_enc = (avg1 * len(enc_res1) + avg2 * len(enc_res2)) / (len(enc_res1) + len(enc_res2))
+    avg_enc = (avg1 * len(enc_res1) + avg2 * len(enc_res2)) / (len(enc_res2) + len(enc_res2))
     end_time = time.time()
 
     sum_ans = 0
@@ -170,7 +170,9 @@ def query3():
     # # get intersect
     # intersect_enc = [res2[p] for p in pos]
 
-    intersect_enc = PSI_client(res1, res2)
+    intersect_enc_ = PSI_client(res1, res2)
+    intersect_enc = []
+    [intersect_enc.append(x) for x in intersect_enc_ if x not in intersect_enc]
 
     end_time = time.time()   
 
