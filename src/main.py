@@ -7,6 +7,7 @@ from Value import Value
 import time
 import os
 from Cryptodome.Util.number import bytes_to_long, long_to_bytes
+import math
 
 
 all_usernames = ["mfcuser", "mfcuser2"]
@@ -89,19 +90,25 @@ def query2():
     for i in range(len(res2)):
         res2[i] = '0' * (7-len(str(res2[i][0]))) + str(res2[i][0])
     # encrypt res2
+    r = Value()
+    r.getRand()
+    while math.gcd(r.value, util.field-1) != 1:
+        r = Value()
+        r.getRand()
     res2_ = [Value(bytes_to_long(bytes(x,'utf-8'))) for x in res2]
-    res2_ = [util.OPRF_Blind(x) for x in res2_]
-    r = res2_[0][0]
-    M = []
-    for bx in res2_:
-        M.append(bx[1])
+    res2_ = [util.OPRF_Blind(x, r) for x in res2_]
     # encrypt res1
     k = Value()
     k.getRand()
-    Xrk = [util.OPRF_Evaluate(k, m) for m in M]
+    Xrk = [util.OPRF_Evaluate(k, m) for m in res2_]
     res1_ = [Value(bytes_to_long(bytes(y,'utf-8'))) for y in res1]
     masked_Y = [util.OPRF_Evaluate(k, y) for y in res1_]
     # encrypt res2
+    r = Value()
+    r.getRand()
+    while math.gcd(r.value, util.field-1) != 1:
+        r = Value()
+        r.getRand()
     masked_X = [util.OPRF_Finalize(r, xrk) for xrk in Xrk]
     pos = []
     for i in range(len(masked_X)):
