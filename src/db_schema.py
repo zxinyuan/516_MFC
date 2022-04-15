@@ -29,8 +29,8 @@ def create_schema(username, password, database):
         # Create a cursor to perform database operations
         cursor = connection.cursor()
         # Print PostgreSQL details
-        print("PostgreSQL server information")
-        print(connection.get_dsn_parameters(), "\n")
+        # print("PostgreSQL server information")
+        # print(connection.get_dsn_parameters(), "\n")
         # Executing a SQL query
         cursor.execute("SELECT version();")
         # Fetch result
@@ -124,8 +124,8 @@ def insert_instance(username, password, database, ratio):
         # Create a cursor to perform database operations
         cursor = connection.cursor()
         # Print PostgreSQL details
-        print("PostgreSQL server information")
-        print(connection.get_dsn_parameters(), "\n")
+        # print("PostgreSQL server information")
+        # print(connection.get_dsn_parameters(), "\n")
         # Executing a SQL query
         cursor.execute("SELECT version();")
         # Fetch result
@@ -250,8 +250,8 @@ def query_sql_avg_age(username, password, database):
         # Create a cursor to perform database operations
         cursor = connection.cursor()
         # Print PostgreSQL details
-        print("PostgreSQL server information")
-        print(connection.get_dsn_parameters(), "\n")
+        # print("PostgreSQL server information")
+        # print(connection.get_dsn_parameters(), "\n")
         # Executing a SQL query
         cursor.execute("SELECT version();")
         # Fetch result
@@ -288,8 +288,8 @@ def query_sql_intersect(username, password, database):
         # Create a cursor to perform database operations
         cursor = connection.cursor()
         # Print PostgreSQL details
-        print("PostgreSQL server information")
-        print(connection.get_dsn_parameters(), "\n")
+        # print("PostgreSQL server information")
+        # print(connection.get_dsn_parameters(), "\n")
         # Executing a SQL query
         cursor.execute("SELECT version();")
         # Fetch result
@@ -304,7 +304,7 @@ def query_sql_intersect(username, password, database):
             SELECT *
             FROM PARTICIPATION P, TESTLOG T
             WHERE A.activityid = P.activityid AND P.studentid = T.studentid
-                AND T.result = true and T.date <= A.date
+                AND T.result = true and T.date <= A.date and A.date - T.date <=3
         )
         """
         cursor.execute(query)
@@ -330,8 +330,8 @@ def query_sql_union(username, password, database):
         # Create a cursor to perform database operations
         cursor = connection.cursor()
         # Print PostgreSQL details
-        print("PostgreSQL server information")
-        print(connection.get_dsn_parameters(), "\n")
+        # print("PostgreSQL server information")
+        # print(connection.get_dsn_parameters(), "\n")
         # Executing a SQL query
         cursor.execute("SELECT version();")
         # Fetch result

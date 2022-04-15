@@ -137,7 +137,7 @@ def query3():
         SELECT *
         FROM PARTICIPATION P, TESTLOG T
         WHERE A.activityid = P.activityid AND P.studentid = T.studentid
-            AND T.result = true and T.date <= A.date
+            AND T.result = true and T.date <= A.date and A.date - T.date <= 3
     )
     """
     start_time = time.time()
@@ -195,9 +195,27 @@ def query3():
 
 
 if __name__ == "__main__":
+    # build two databases and inserts generated synthetic data
+    '''
+    local data schema: 
+    students: student_id (PK), age, first_name, last_name
+    healthcenters: center_id (PK), location_id
+    activity: actitvity_id (PK), location_id, date
+    participation: participation_id (PK), activity_id, student_id
+    location: location_id (PK), address, city
+    testlog: test_id (PK), result, date, student_id
+    vaccination: brand_id (PK)
+    vaccinationhistory: history_id (PK), brand_id, student_id, dose_number, date
+    '''
     setup()
 
     print('===================== Q1 ======================')
+    """
+    SELECT S.age
+    FROM STUDENTS S
+    JOIN TESTLOG T ON S.studentid = T.studentid
+    WHERE T.result = TRUE
+    """
     avg_enc, avg_ans, sql_time, tot_time = query1()
     print('--- MPC result ---')
     print(avg_enc)
@@ -209,6 +227,12 @@ if __name__ == "__main__":
     print(f'{sql_time}/{tot_time}')
 
     print('===================== Q2 ======================')
+    """
+    SELECT A.locationid
+    FROM ACTIVITY A, PARTICIPATION P, TESTLOG T
+    WHERE A.activityid = P.activityid AND P.studentid = T.studentid
+        AND T.result = true AND T.date <= A.date
+    """
     union_enc, union_ans, sql_time, tot_time = query2()
     union_enc.sort()
     union_ans.sort()
@@ -229,11 +253,22 @@ if __name__ == "__main__":
     print(f'{sql_time}/{tot_time}')
 
     print('===================== Q3 ======================')
+    """
+    SELECT A.activity_id
+    FROM ACTIVITY A
+    WHERE NOT EXISTS(
+        SELECT *
+        FROM PARTICIPATION P, TESTLOG T
+        WHERE A.activityid = P.activityid AND P.studentid = T.studentid
+            AND T.result = true and T.date <= A.date and A.date - T.date <= 3
+    )
+    """
     intersect_enc, intersect_ans, sql_time, total_time = query3()
     intersect_enc.sort()
     intersect_ans.sort()
     print('--- MPC result ---')
     print(intersect_enc)
+    print(len(intersect_enc))
     print('--- Answer ---')
     print(intersect_ans)
     print('--- Same? ---')
