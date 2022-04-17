@@ -8,20 +8,10 @@
 
 ## Synthetic data generation
 ```
-python data_generation.py
+python ./src/data_generation.py
 ```
 
-## Create relational db model in postgreSQL
-1. Create table:
-```
-python db_schema.py create_table
-```
-2. Insert generated data:
-```
-python db_schema.py insert_instance
-```
-
-## test 3 queries (avg, intersection, union)
+## Test 3 queries (avg, intersection, union)
 ```
 python ./src/main.py
 ```
