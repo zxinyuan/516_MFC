@@ -361,10 +361,6 @@ def query_sql_union(username, password, database):
 
 if __name__ == '__main__':
 
-  username = 'mfcuser'
-  password = '12345678'
-  database = 'mfcdb'
-
   args = sys.argv[1]
   username = sys.argv[2]
   password = sys.argv[3]
